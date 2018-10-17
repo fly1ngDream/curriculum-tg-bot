@@ -58,9 +58,9 @@ bot.on('text', function(msg)
     if (messageText === '/curriculum') {
         sendMessageByBot(messageChatId, 'The curriculum for the current week :');
         if (weekCheck("15-10-2018")) {
-            sendPhotoByBot(messageChatId, '/home/yevhens/Deploy/15-10-2018.png');
+            sendPhotoByBot(messageChatId, '15-10-2018.png');
         } else if (weekCheck("22-10-2018")) {
-            sendPhotoByBot(messageChatId, '/home/yevhens/Deploy/22-10-2018.png')
+            sendPhotoByBot(messageChatId, '22-10-2018.png')
         }
     }
 
