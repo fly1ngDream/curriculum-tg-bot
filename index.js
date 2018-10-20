@@ -58,7 +58,7 @@ bot.on('text', function(msg)
 
     if (messageText === '/curriculum') {
         if (curriculumObject[getCurrentFormatedDate()] != undefined) {
-            sendMessageByBot(messageChatId, 'The curriculum for today :' + "\n" + curriculumObject[getCurrentFormatedDate()]);
+            sendMessageByBot(messageChatId, '👨‍🎓The curriculum for today👩‍🎓 :' + "\n" + curriculumObject[getCurrentFormatedDate()]);
         } else  {
             sendMessageByBot(messageChatId, 'There is no curriculum for today! ✅');
         }
