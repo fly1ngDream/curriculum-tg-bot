@@ -1,30 +1,8 @@
-function getCurrentFormatedDate() {
-    let now = new Date();
-    let nowStr = now.getDate() + "-" + (now.getMonth() + 1) + "-" + now.getFullYear();
-    return nowStr;
+let curriculumObject = {
+    "19-10-2018" : "Пара 4: Комп’ютерна графіка та мультимедіа (101)-Бойко Ю.П. (л) підгрупа 1; Пара 4: Об’єктно-орієнтоване програмування (307)- Духновська К.К. (л) підгрупа 2; Пара 5: Проектування та аналіз обчислювальних алгоритмів (217)-Домрачев В.М. (П); Пара 6: Об’єктно-орієнтоване програмування (307Б)-Духновська К.К. (л) підгрупа 2; Пара 6: Об’єктно-орієнтоване програмування (307А)-Галата Л.П. (л) підгрупа 1",
+    "22-10-2018" : "Пара 3: Комп'ютерні мережі (307)-Сайко В.Г. (л) підгрупа 2; Пара 4: Комп'ютерні мережі (318)-Сайко В.Г. (Л); Пара 5: Об’єктно-орієнтоване програмування (318)-Корнієнко Б.Я. (Л)"
 }
 
-function getFormatedDate(date) {
-    let now = date;
-    let nowStr = now.getDate() + "-" + (now.getMonth() + 1) + "-" + now.getFullYear();
-    return nowStr;
-}
+let curriculumObjectProperties = Object.keys(curriculumObject);
 
-function weekCheck(monday) {
-    let mondayId = monday.split('-')[0];
-    let week = [];
-    for (var i = mondayId; i <= mondayId + 6; i++) {
-        week[i] = i + "-" + monday.split('-')[1] + "-" + monday.split('-')[2];
-    }
-    for (var i = 0; i < week.length; i++) {
-        if (getCurrentDate() == week[i]) {
-            return true;
-        }
-    }
-    return false;
-}
-
-console.log(weekCheck("22-10-2018"));
-
-let now = new Date('2018-11-17');
-console.log(getFormatedDate(now));
+console.log(curriculumObject["25-11-2019"]);
