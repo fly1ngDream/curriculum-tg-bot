@@ -1,4 +1,3 @@
-var Promise = require("bluebird");
 var TelegramBot = require('node-telegram-bot-api');
 
 var token = '***REMOVED***';
