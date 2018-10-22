@@ -4,6 +4,7 @@
   "description": "",
   "main": "DateTest.js",
   "dependencies": {
+    "bluebird": "^3.5.2",
     "node-telegram-bot-api": "^0.30.0",
     "request": "^2.88.0"
   },
@@ -12,7 +13,7 @@
     "start": "node index.js"
   },
   "engines": {
-      "node": "10.11.0"
+    "node": "10.11.0"
   },
   "author": "",
   "license": "ISC"
