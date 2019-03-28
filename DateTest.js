@@ -1,18 +1,3 @@
-var TelegramBot = require('node-telegram-bot-api');
-
-const token = require('./tgapi_token');
-var botOptions = {
-    polling: true
-};
-var bot = new TelegramBot(token, botOptions);
-
-bot.getMe().then(function(me)
-{
-    console.log('Hello! My name is %s!', me.first_name);
-    console.log('My id is %s.', me.id);
-    console.log('And my username is @%s.', me.username);
-});
-
 let curriculumObject = {
     "19-10-2018" : "\n13:40 ==> \nПара 4: Комп’ютерна графіка та мультимедіа (101)-Бойко Ю.П. (л) підгрупа 1; \n13:40 ==> \nПара 4: Об’єктно-орієнтоване програмування (307)- Духновська К.К. (л) підгрупа 2; \n15:10 ==> \nПара 5: Проектування та аналіз обчислювальних алгоритмів (217)-Домрачев В.М. (П); \n16:40 ==> \nПара 6: Об’єктно-орієнтоване програмування (307Б)-Духновська К.К. (л) підгрупа 2; \n16:40 ==> \nПара 6: Об’єктно-орієнтоване програмування (307А)-Галата Л.П. (л) підгрупа 1",
     "22-10-2018" : "\n12:10 ==> \nПара 3: Комп'ютерні мережі (307)-Сайко В.Г. (л) підгрупа 2; \n13:40 ==> \nПара 4: Комп'ютерні мережі (318)-Сайко В.Г. (Л); \n15:10 ==> \nПара 5: Об’єктно-орієнтоване програмування (318)-Корнієнко Б.Я. (Л)",
@@ -26,7 +11,7 @@ let curriculumObject = {
     "1-11-2018" : "\n15:10 ==> \nПара 5: Проектування та аналіз обчислювальних алгоритмів (217)-Домрачев В.М. (П); \n16:40 ==> \nПара 6: Комп’ютерна графіка та мультимедіа (106)-Бойко Ю.П. (л) підгрупа 1; \n16:40 ==> \nПара 6: Об’єктно-орієнтоване програмування (107)-Духновська К.К. (л) підгрупа 2",
     "2-11-2018" : "\n13:40 ==> \nПара 4: Бази даних (202)-Краснощок В.М. (л); \n15:10 ==> \nПара 5: Проектування та аналіз обчислювальних алгоритмів (217)-Домрачев В.М. (П)",
     "5-11-2018" : "\n12:10 ==> \nПара 3: Комп'ютерні мережі (101)-Сайко В.Г. (л) підгрупа 2; \n13:40 ==> \nПара 4: Комп'ютерні мережі (103)-Сайко В.Г. (Л); \n15:10 ==> \nПара 5: Об’єктно-орієнтоване програмування (318)-Корнієнко Б.Я. (Л); \n16:40 ==> \nПара 6: Об’єктно-орієнтоване програмування (106)-Галата Л.П. (л) підгрупа 1"
-};
+}
 
 function getCurrentFormatedDate() {
     let now = new Date();
@@ -34,35 +19,15 @@ function getCurrentFormatedDate() {
     return nowStr;
 }
 
-function getFormatedDate(date) {
-    let now = date;
-    let nowStr = now.getDate() + "-" + (now.getMonth() + 1) + "-" + now.getFullYear();
-    return nowStr;
+let now = new Date();
+console.log(getCurrentFormatedDate() + "  " + now.getHours() + ":" + now.getMinutes());
+
+let now1 = new Date().toLocaleString
+
+
+
+if (curriculumObject[getCurrentFormatedDate()] != undefined) {
+    console.log(curriculumObject[getCurrentFormatedDate()]);
+} else  {
+    console.log(curriculumObject[getCurrentFormatedDate()]);
 }
-
-function sendMessageByBot(aChatId, aMessage)
-{
-    bot.sendMessage(aChatId, aMessage, { caption: 'I\'m a cute bot!' });
-}
-
-function sendPhotoByBot(aChatId, aPhoto) {
-    bot.sendPhoto(aChatId, aPhoto);
-}
-
-bot.on('text', function(msg)
-{
-    var messageChatId = msg.chat.id;
-    var messageText = msg.text;
-    var messageDate = msg.date;
-    var messageUsr = msg.from.username;
-
-    if (messageText === '/curriculum') {
-        if (curriculumObject[getCurrentFormatedDate()] != undefined) {
-            sendMessageByBot(messageChatId, '👨‍🎓The curriculum for today👩‍🎓 :' + "\n" + curriculumObject[getCurrentFormatedDate()]);
-        } else  {
-            sendMessageByBot(messageChatId, 'There is no curriculum for today! ✅');
-        }
-    }
-
-    console.log(msg);
-});
