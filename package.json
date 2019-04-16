@@ -5,6 +5,7 @@
   "main": "DateTest.js",
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0",
+    "nodemon": "^1.18.11",
     "request": "^2.88.0"
   },
   "devDependencies": {},
