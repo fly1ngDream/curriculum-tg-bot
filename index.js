@@ -1,8 +1,7 @@
 var TelegramBot = require('node-telegram-bot-api');
-const token = require('./tgapi_token');
 const curriculumObject = require('./curriculum');
+const token = process.env.TG_API_TOKEN;
 
-process.env.TZ = 'Europe/Kiev';
 
 var botOptions = {
     polling: true
